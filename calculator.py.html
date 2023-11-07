@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Calculator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-5 mx-auto d-block bg-light p-4 rounded " style="height: 350px;">
+                <h2 class="text-center p-3">Calculator</h2>
+                <div class="form" name="calculator-form">
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-1 ml-1">
+                            <input type="text" id="num1" placeholder="First num">
+                        </div>
+                        <div class="form inline">
+                            <div class="col-md-1" style="left: 155px;">
+                                <select id="select-option">
+                                    <option value="+" selected>+</option>
+                                    <option value="-">-</option>
+                                    <option value="*">*</option>
+                                    <option value="/">/</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form inline">
+                            <div class="col-md-2 mr-1 " style="left: 140px;">
+                                <input type="text" id="num2" placeholder="Second num">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-1" style="left: 120px;">
+                            <button class="btn btn-success btn-sm" onclick="displayResult()">Result</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12 ml-5 p-2" style="left: 80px;">
+                            <input id="view" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function displayResult() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var option = document.getElementById('select-option').value;
+            if (option === '+') {
+                add(num1, num2);
+            } else if (option === '-') {
+                subtract(num1, num2);
+            } else if (option === '*') {
+                multiply(num1, num2);
+            } else if (option === '/') {
+                divide(num1, num2);
+            }
+        }
+       
+
+        function add(num1, num2) {
+            var result = num1 + num2;
+            document.getElementById('view').value = result;
+        }
+
+        function subtract(num1, num2) {
+            var result = num1 - num2;
+            document.getElementById('view').value = result;
+        }
+
+        function multiply(num1, num2) {
+             
+            var result= num1 * num2;
+            document.getElementById('view').value = result;
+        }
+        function divide(num1,num2) {
+             
+            var result= num1 / num2;
+            document.getElementById('view').value = result;
+        }
+         </script>
+    </body>
+</html>
